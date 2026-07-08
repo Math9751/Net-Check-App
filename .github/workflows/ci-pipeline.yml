@@ -1,0 +1,28 @@
+name: DevOps CI Pipeline
+
+# O pipeline vai rodar automaticamente toda vez que você der um 'git push'
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Baixa o código do seu repositório na máquina do GitHub
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # 2. Configura o ambiente Python automaticamente
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # 3. Instala as dependências e testa se o script Python está quebrado
+      - name: Instalar dependências e checar sintaxe
+        run: |
+          pip install flask
+          python -m compileall server.py
+          echo "✅ Código validado com sucesso e livre de erros de sintaxe!"

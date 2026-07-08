@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netcheck-backend-deployment
+spec:
+  replicas: 2 # 💡 Prova de conceito: Mantém sempre 2 containers rodando vivos
+  selector:
+    matchLabels:
+      app: netcheck-backend
+  template:
+    metadata:
+      labels:
+        app: netcheck-backend
+    spec:
+      containers:
+        - name: python-flask-app
+          image: python:3.10-slim # Indica a imagem base
+          ports:
+            - containerPort: 8080

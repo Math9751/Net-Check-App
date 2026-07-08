@@ -13,7 +13,7 @@ import java.net.URL
 
 class NetworkHelper(private val context: Context) {
 
-    private val BASE_URL = "http://192.168.15.4:5000/api/report"
+    private val BASE_URL = "http://127.0.0.1:8080/api/report"
     // Função para checar o tipo de conexão atual
     @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
     fun getNetworkType(): String {

@@ -55,6 +55,7 @@ fun TelaPrincipalContent(
     }
 }
 
+//preview
 @Preview(showBackground = true)
 @Composable
 fun PreviewTelaPrincipal() {
@@ -65,3 +66,5 @@ fun PreviewTelaPrincipal() {
         )
     }
 }
+
+
